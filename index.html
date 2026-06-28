@@ -80,7 +80,19 @@ color:#94a3b8;
 </style>
 
 </head>
+<script>
+function generateClip() {
 
+const link = document.querySelector("input").value;
+
+if(link === ""){
+    alert("Please paste a video link first.");
+    return;
+}
+
+alert("ClipGenius AI is processing your video.\n\nThis feature is coming soon!");
+}
+</script>
 <body>
 
 <div class="container">
@@ -95,7 +107,7 @@ placeholder="Paste YouTube, Facebook or TikTok link here">
 
 <br>
 
-<button>Generate Clips</button>
+<button onclick="generateClip()">Generate Clips</button>
 
 <div class="features">
 
