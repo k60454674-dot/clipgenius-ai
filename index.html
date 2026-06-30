@@ -81,16 +81,27 @@ color:#94a3b8;
 
 </head>
 <script>
+
 function generateClip() {
 
 const link = document.querySelector("input").value;
+const status = document.getElementById("status");
 
 if(link === ""){
-    alert("Please paste a video link first.");
+    status.innerHTML = "❌ Please paste a video link first.";
     return;
 }
 
-alert("ClipGenius AI is processing your video.\n\nThis feature is coming soon!");
+status.innerHTML = "🤖 AI is analyzing your video...";
+
+setTimeout(function(){
+
+status.innerHTML = "✅ Demo complete! Soon ClipGenius AI will automatically create viral clips from your video.";
+
+},3000);
+
+}
+
 }
 </script>
 <body>
@@ -108,7 +119,8 @@ placeholder="Paste YouTube, Facebook or TikTok link here">
 <br>
 
 <button onclick="generateClip()">Generate Clips</button>
-
+<p id="status" style="margin-top:20px;color:#38bdf8;font-weight:bold;"></p>
+    
 <div class="features">
 
 <div class="card">
