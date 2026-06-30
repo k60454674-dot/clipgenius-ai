@@ -10,30 +10,33 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
-background:#0f172a;
+background:#07111f;
 color:white;
-text-align:center;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
 padding:20px;
 }
 
 .container{
+width:100%;
 max-width:700px;
-margin:auto;
-padding-top:60px;
+text-align:center;
 }
 
 h1{
 font-size:42px;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 p{
-color:#cbd5e1;
-margin-bottom:30px;
+color:#b8c5d6;
+margin-bottom:25px;
 }
 
 input{
@@ -46,7 +49,8 @@ margin-bottom:20px;
 }
 
 button{
-padding:15px 35px;
+width:100%;
+padding:15px;
 font-size:18px;
 background:#2563eb;
 color:white;
@@ -59,51 +63,32 @@ button:hover{
 background:#1d4ed8;
 }
 
+#status{
+margin-top:20px;
+font-weight:bold;
+color:#38bdf8;
+}
+
 .features{
+margin-top:40px;
 display:grid;
-grid-template-columns:1fr;
 gap:15px;
-margin-top:50px;
 }
 
 .card{
-background:#1e293b;
+background:#13243a;
 padding:20px;
 border-radius:12px;
 }
 
 .footer{
-margin-top:60px;
+margin-top:40px;
 font-size:14px;
 color:#94a3b8;
 }
 </style>
-
 </head>
-<script>
 
-function generateClip() {
-
-const link = document.querySelector("input").value;
-const status = document.getElementById("status");
-
-if(link === ""){
-    status.innerHTML = "❌ Please paste a video link first.";
-    return;
-}
-
-status.innerHTML = "🤖 AI is analyzing your video...";
-
-setTimeout(function(){
-
-status.innerHTML = "✅ Demo complete! Soon ClipGenius AI will automatically create viral clips from your video.";
-
-},3000);
-
-}
-
-}
-</script>
 <body>
 
 <div class="container">
@@ -113,14 +98,14 @@ status.innerHTML = "✅ Demo complete! Soon ClipGenius AI will automatically cre
 <p>Create viral TikTok, YouTube Shorts and Instagram Reels with AI.</p>
 
 <input
+id="videoLink"
 type="text"
-placeholder="Paste YouTube, Facebook or TikTok link here">
-
-<br>
+placeholder="Paste YouTube, TikTok, Facebook or Instagram link">
 
 <button onclick="generateClip()">Generate Clips</button>
-<p id="status" style="margin-top:20px;color:#38bdf8;font-weight:bold;"></p>
-    
+
+<p id="status"></p>
+
 <div class="features">
 
 <div class="card">
@@ -130,12 +115,12 @@ placeholder="Paste YouTube, Facebook or TikTok link here">
 
 <div class="card">
 <h2>🎯 Viral Captions</h2>
-<p>Generate subtitles and captions automatically.</p>
+<p>Generate subtitles automatically.</p>
 </div>
 
 <div class="card">
-<h2>📥 Download HD</h2>
-<p>Download your finished clips in high quality.</p>
+<h2>📥 HD Download</h2>
+<p>Download clips in HD quality.</p>
 </div>
 
 </div>
@@ -145,6 +130,28 @@ placeholder="Paste YouTube, Facebook or TikTok link here">
 </div>
 
 </div>
+
+<script>
+function generateClip(){
+
+const link=document.getElementById("videoLink").value;
+const status=document.getElementById("status");
+
+if(link===""){
+status.innerHTML="❌ Please paste a video link first.";
+return;
+}
+
+status.innerHTML="🤖 AI is analyzing your video...";
+
+setTimeout(function(){
+
+status.innerHTML="✅ Demo Complete! ClipGenius AI successfully detected your video. Real AI clipping will be added in the next version.";
+
+},3000);
+
+}
+</script>
 
 </body>
 </html>
