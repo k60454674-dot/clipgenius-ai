@@ -133,15 +133,19 @@ try {
 
     const data = await response.json();
 
+    if (!response.ok) {
+        throw new Error(data.message || "Server error");
+    }
+
     status.innerHTML = "✅ " + (data.message || "Request sent successfully!");
 
+    setTimeout(() => {
+        status.innerHTML = "🎬 Success! Your video has been received. ClipGenius AI will now process and create short clips automatically.";
+    }, 1500);
+
 } catch (error) {
-    status.innerHTML = "❌ Failed to connect to the AI server.";
+    status.innerHTML = "❌ Failed to connect to the AI server. Please try again.";
 }
-
-status.innerHTML = "✅ Success! Your video has been received. In the next stage, ClipGenius AI will process and create short clips automatically.";
-
-},3000);
 
 }
 </script>
